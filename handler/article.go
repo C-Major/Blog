@@ -39,5 +39,5 @@ func GetArticle(c *gin.Context) {
 			"title":   article.Title,
 			"payload": article,
 		},
-		"article.index")
+		"article.html")
 }
