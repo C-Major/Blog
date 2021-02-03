@@ -23,7 +23,7 @@ func ShowIndexPage(c *gin.Context) {
 
 // GetArticle .
 func GetArticle(c *gin.Context) {
-	articleID, err := strconv.Atoi(c.Param("article_id"))
+	articleID, err := strconv.ParseUint(c.Param("article_id"), 10, 64)
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
 	}

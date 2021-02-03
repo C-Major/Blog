@@ -6,7 +6,7 @@ import (
 
 // Article .
 type Article struct {
-	ID      int    `json:"Id"`
+	ID      uint64 `json:"Id"`
 	Title   string `json:"Title"`
 	Content string `json:"Content"`
 }
@@ -22,7 +22,7 @@ func GetAllArticles() []Article {
 }
 
 // GetArticleByID returns the article by specified id
-func GetArticleByID(id int) (*Article, error) {
+func GetArticleByID(id uint64) (*Article, error) {
 	for _, a := range articleList {
 		if a.ID == id {
 			return &a, nil
