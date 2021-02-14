@@ -2,8 +2,8 @@ package model
 
 import "time"
 
-// User .
-type User struct {
+// BlogUser .
+type BlogUser struct {
 	ID         uint64    `json:"id"`
 	Email      string    `json:"email"`
 	Password   string    `json:"password"`
