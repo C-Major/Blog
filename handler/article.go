@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/c-major/article_manager/common"
-	"github.com/c-major/article_manager/model"
+	"github.com/c-major/blog/common"
+	"github.com/c-major/blog/model"
 	"github.com/gin-gonic/gin"
 )
 

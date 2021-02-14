@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/c-major/article_manager/util"
+	"github.com/c-major/blog/util"
 )
 
 // Test that a GET request to the home page returns the home page with

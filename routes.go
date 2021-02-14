@@ -1,6 +1,6 @@
 package main
 
-import "github.com/c-major/article_manager/handler"
+import "github.com/c-major/blog/handler"
 
 func initializeRoutes() {
 
