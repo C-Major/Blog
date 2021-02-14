@@ -2,13 +2,18 @@ package model
 
 import (
 	"fmt"
+	"time"
 )
 
 // Article .
 type Article struct {
-	ID      uint64 `json:"Id"`
-	Title   string `json:"Title"`
-	Content string `json:"Content"`
+	ID         uint64    `json:"id"`
+	Title      string    `json:"title"`
+	Content    string    `json:"content"`
+	AuthorID   uint64    `json:"author_id"`
+	Status     int8      `json:"status"`
+	CreateTime time.Time `json:"create_time"`
+	UpdateTime time.Time `json:"update_time"`
 }
 
 var articleList = []Article{
