@@ -12,17 +12,17 @@ import (
 
 // Config .
 type Config struct {
-	DBConfig *DBConfig `yaml:"database"`
+	DBConfig *dbConfig `yaml:"database"`
 }
 
-// DBConfig .
-type DBConfig struct {
-	DBReadConfig  *DBReadConfig  `yaml:"read"`
-	DBWriteConfig *DBWriteConfig `yaml:"write"`
+// dbConfig .
+type dbConfig struct {
+	DBReadConfig  *dbReadConfig  `yaml:"read"`
+	DBWriteConfig *dbWriteConfig `yaml:"write"`
 }
 
-// DBReadConfig .
-type DBReadConfig struct {
+// dbReadConfig .
+type dbReadConfig struct {
 	Name     string `yaml:"name"`
 	Host     string `yaml:"host"`
 	Port     string `yaml:"port"`
@@ -30,8 +30,8 @@ type DBReadConfig struct {
 	Password string `yaml:"password"`
 }
 
-// DBWriteConfig .
-type DBWriteConfig struct {
+// dbWriteConfig .
+type dbWriteConfig struct {
 	Name     string `yaml:"name"`
 	Host     string `yaml:"host"`
 	Port     string `yaml:"port"`
