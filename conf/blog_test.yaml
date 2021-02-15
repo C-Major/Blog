@@ -1,0 +1,14 @@
+database:
+  read:
+    name: blog
+    host: 127.0.0.1
+    port: 3306
+    username: test_read
+    password: test_read
+
+  write:
+    name: blog
+    host: 127.0.0.1
+    port: 3306
+    username: test_write
+    password: test_write
