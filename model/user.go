@@ -1,6 +1,10 @@
 package model
 
-import "time"
+import (
+	"time"
+
+	"github.com/c-major/blog/constdef"
+)
 
 // BlogUser .
 type BlogUser struct {
@@ -9,5 +13,11 @@ type BlogUser struct {
 	Password   string    `json:"password"`
 	Name       string    `json:"name"`
 	Status     int8      `json:"status"`
-	CreateTime time.Time `json:"create_time"`
+	CreateTime time.Time `gorm:"default:null" json:"create_time"`
+	UpdateTime time.Time `gorm:"default:null" json:"update_time"`
+}
+
+// TableName .
+func (BlogUser) TableName() string {
+	return constdef.BlogUserTable
 }
