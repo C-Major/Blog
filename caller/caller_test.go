@@ -20,6 +20,11 @@ func TestInitCaller(t *testing.T) {
 
 	os.Setenv("IS_TEST_ENV", "1")
 	config, err := common.GetConfig(rootDir, "../", "conf")
+	if err != nil {
+		common.TextLog.Error("failed to initialize config")
+		t.Fail()
+	}
+
 	err = InitCaller(config)
 	assert.Nil(t, err)
 }
