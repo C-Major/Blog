@@ -4,11 +4,34 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"strings"
 	"testing"
 
+	"github.com/c-major/blog/caller"
+	"github.com/c-major/blog/common"
 	"github.com/c-major/blog/util"
 )
+
+func init() {
+	common.InitLog()
+
+	rootDir, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
+	os.Setenv("IS_TEST_ENV", "1")
+	config, err := common.GetConfig(rootDir, "../", "conf")
+	if err != nil {
+		common.TextLog.Error("failed to initialize config")
+	}
+
+	err = caller.InitCaller(config)
+	if err != nil {
+		common.TextLog.Error("failed to initialize caller")
+	}
+}
 
 // Test that a GET request to the home page returns the home page with
 // the HTTP code 200 for an unauthenticated user
@@ -48,7 +71,7 @@ func TestGetArticleUnauthenticated(t *testing.T) {
 		// You can carry out a lot more detailed tests using libraries that can
 		// parse and process HTML pages
 		b, err := ioutil.ReadAll(rr.Body)
-		pageOK := (err == nil && strings.Index(string(b), "<title>Article 1</title>") > 0)
+		pageOK := (err == nil && strings.Index(string(b), "<title>test title 1</title>") > 0)
 
 		return statusOK && pageOK
 	})
